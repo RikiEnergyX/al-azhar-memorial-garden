@@ -75,16 +75,7 @@ export default function Navbar({ onOpenCalculator, onOpenSurvey }) {
             <a href="#edukasi" className="hover:text-[#0F4C3A] transition-colors py-1">Edukasi</a>
           </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
-            <button
-              onClick={() => handleWaClick('Navbar CTA')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#0F4C3A] to-[#0D2A4A] text-white text-xs font-bold shadow-md hover:shadow-lg hover:brightness-110 transition-all border border-[#D4AF37]/30"
-            >
-              <Phone className="w-4 h-4 text-[#F4D068]" />
-              Konsultasi WhatsApp
-            </button>
-          </div>
+
 
           {/* Mobile Menu Button */}
           <button

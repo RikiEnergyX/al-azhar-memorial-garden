@@ -75,10 +75,10 @@ export default function Hero({ onOpenCalculator, onOpenSurvey }) {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
               <button
                 onClick={onOpenCalculator}
-                className="px-6 py-4 rounded-xl bg-gradient-to-r from-[#0F4C3A] to-[#0D2A4A] text-white font-bold text-sm shadow-lg hover:shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2.5 border border-[#D4AF37]/30 group"
+                className="flex-1 px-6 py-4 rounded-xl bg-gradient-to-r from-[#0F4C3A] to-[#0D2A4A] text-white font-bold text-sm shadow-lg hover:shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2.5 border border-[#D4AF37]/30 group"
               >
                 <Calculator className="w-5 h-5 text-[#F4D068]" />
                 <span>Simulasi Kalkulator Harga</span>
@@ -86,19 +86,12 @@ export default function Hero({ onOpenCalculator, onOpenSurvey }) {
               </button>
 
               <button
-                onClick={handleWaConsult}
-                className="px-6 py-4 rounded-xl bg-white text-[#0F4C3A] font-bold text-sm border-2 border-[#0F4C3A] shadow-xs hover:bg-emerald-50 transition-all flex items-center justify-center gap-2"
-              >
-                <Phone className="w-4 h-4 text-[#0F4C3A]" />
-                <span>Konsultasi Direct WhatsApp</span>
-              </button>
-
-              <button
                 onClick={onOpenSurvey}
-                className="px-5 py-4 rounded-xl bg-amber-50 text-[#8C6400] font-bold text-sm border border-amber-200 hover:bg-amber-100 transition-all flex items-center justify-center gap-2"
+                className="flex-1 px-6 py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#AA7C11] to-[#D4AF37] text-white font-extrabold text-sm shadow-lg hover:shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2.5 border border-yellow-200 group"
               >
-                <CalendarCheck className="w-4 h-4" />
-                <span>Survey Lokasi</span>
+                <CalendarCheck className="w-5 h-5 text-white" />
+                <span>Jadwal Survey Lokasi (Gratis)</span>
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
