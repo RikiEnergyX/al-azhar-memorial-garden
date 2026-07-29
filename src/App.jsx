@@ -69,8 +69,8 @@ export default function App() {
       {/* 10. PwC-Style Lead Capture Form */}
       <LeadCaptureForm />
 
-      {/* Cloudflare Workers Backend Drawer & Setup Spec */}
-      <CloudflareDevDrawer />
+      {/* Cloudflare Workers Backend Drawer & Setup Spec (Temporarily hidden for clean production view) */}
+      {/* <CloudflareDevDrawer /> */}
 
       {/* Footer */}
       <Footer />
