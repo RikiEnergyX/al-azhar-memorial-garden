@@ -7,7 +7,7 @@ export default function FloatingWhatsApp() {
 
   const handleOpenWa = (topic = 'Konsultasi Direct WhatsApp') => {
     const text = encodeURIComponent(
-      `Assalamu'alaikum Warahmatullahi Wabarakatuh, saya ingin berkonsultasi mengenai Lahan Makam Al Azhar Memorial Garden (${topic}).`
+      `Assalamu'alaikum Ibu ${AGENT_INFO.salesAgent} (${AGENT_INFO.salesCode}), saya ingin berkonsultasi mengenai Lahan Makam Al Azhar Memorial Garden (${topic}).`
     );
     window.open(`https://wa.me/${AGENT_INFO.phone}?text=${text}`, '_blank');
   };
@@ -24,10 +24,10 @@ export default function FloatingWhatsApp() {
                 AMG
               </div>
               <div>
-                <h4 className="font-serif-header text-sm font-bold text-[#0D2A4A]">Official Sales Consultant</h4>
+                <h4 className="font-serif-header text-sm font-bold text-[#0D2A4A]">Ibu {AGENT_INFO.salesAgent} [{AGENT_INFO.salesCode}]</h4>
                 <span className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                  Online 24/7 Siaga Bantuan
+                  Memorial Partner &bull; Online 24/7
                 </span>
               </div>
             </div>
@@ -41,7 +41,7 @@ export default function FloatingWhatsApp() {
           </div>
 
           <p className="text-gray-600 leading-relaxed font-sans">
-            Assalamu'alaikum! Silakan pilih layanan cepat untuk terhubung langsung via WhatsApp:
+            Assalamu'alaikum! Silakan pilih layanan cepat untuk terhubung langsung dengan Ibu Corina (Memorial Partner):
           </p>
 
           <div className="space-y-2">
@@ -51,18 +51,18 @@ export default function FloatingWhatsApp() {
             >
               <span className="flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-                1. Konsultasi Persiapan Pre-Need (Hemat 10%)
+                1. Konsultasi Pre-Need (Cash Keras Diskon 20%+2%)
               </span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
 
             <button
-              onClick={() => handleOpenWa('Minta Brosur Pricelist PDF')}
+              onClick={() => handleOpenWa('Minta Brosur Pricelist Juli 2026')}
               className="w-full py-2.5 px-3.5 rounded-xl bg-emerald-50 text-[#0F4C3A] font-bold text-left hover:bg-emerald-100 transition-all flex items-center justify-between border border-emerald-200"
             >
               <span className="flex items-center gap-2">
                 <PhoneCall className="w-3.5 h-3.5 text-[#0F4C3A]" />
-                2. Minta Brosur & Pricelist PDF Resmi
+                2. Minta Brosur Price List Juli 2026 PDF
               </span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -99,8 +99,8 @@ export default function FloatingWhatsApp() {
               </span>
             </div>
 
-            <span className="hidden xs:inline">Konsultasi Direct WhatsApp 24 Jam</span>
-            <span className="xs:hidden">Chat WhatsApp 24/7</span>
+            <span className="hidden xs:inline">Konsultasi WA Ibu Corina [AZHR-10306]</span>
+            <span className="xs:hidden">WA Corina 24/7</span>
           </button>
 
           {/* Quick Options Expand Toggle */}

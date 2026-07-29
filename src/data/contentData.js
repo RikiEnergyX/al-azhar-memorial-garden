@@ -1,9 +1,12 @@
 export const AGENT_INFO = {
   name: "Al Azhar Memorial Garden",
-  badge: "Official Authorized Sales Agent",
-  phone: "6281234567890", // Example official agent WhatsApp number format
-  phoneFormatted: "0812-3456-7890",
-  email: "info@makamalazhar-official.id",
+  badge: "Official Memorial Partner",
+  salesAgent: "Corina",
+  salesCode: "AZHR-10306",
+  title: "Memorial Partner Al Azhar Memorial Garden",
+  phone: "6281310091299",
+  phoneFormatted: "0813-1009-1299",
+  email: "corina.alazhar@gmail.com",
   location: "Jl. Raya Peruri KM 53-54, Karawang Timur, Jawa Barat",
   exitTol: "10 Menit dari Exit Tol Karawang Timur 2 (MBZ Skyway / Cipularang)",
   developer: "PT Nuansa Usaha Mandiri & YPI Al Azhar",
@@ -85,11 +88,56 @@ export const ADVANTAGES_12 = [
   },
 ];
 
+// Official Authentic Price List July 2026
+export const PRICE_LIST_JULY_2026 = [
+  { no: 1, name: "Single", capacity: 1, area: "1.5x3 (4.5 m²)", normal: 68917500, cashKeras: 54891540, promoTunai: 55930500, bookingFee: 1000000, category: "Single" },
+  { no: 2, name: "Double", capacity: 2, area: "3.5x3.9 (13.65 m²)", normal: 209049750, cashKeras: 166504338, promoTunai: 169655850, bookingFee: 5000000, category: "Double" },
+  { no: 3, name: "Double Varian B", capacity: 2, area: "3.0x3.5 (10.50 m²)", normal: 160807500, cashKeras: 128080260, promoTunai: 130504500, bookingFee: 5000000, category: "Double" },
+  { no: 4, name: "Double Varian C", capacity: 2, area: "3.75x3.9 (14.63 m²)", normal: 223981875, cashKeras: 178397505, promoTunai: 181774125, bookingFee: 5000000, category: "Double" },
+  { no: 5, name: "Double Varian D", capacity: 2, area: "4x3 (12.00 m²)", normal: 183780000, cashKeras: 146377440, promoTunai: 149148000, bookingFee: 5000000, category: "Double" },
+  { no: 6, name: "Super Double", capacity: 2, area: "3.5x7.8 (27.30 m²)", normal: 418099500, cashKeras: 333008676, promoTunai: 339311700, bookingFee: 5000000, category: "Double" },
+  { no: 7, name: "Family (A)", capacity: 4, area: "3.5x7.5 (26.25 m²)", normal: 402018750, cashKeras: 320200650, promoTunai: 326261250, bookingFee: 15000000, category: "Family" },
+  { no: 8, name: "Family (B)", capacity: 4, area: "3.5x6.5 (22.75 m²)", normal: 348416250, cashKeras: 277507230, promoTunai: 282759750, bookingFee: 15000000, category: "Family" },
+  { no: 9, name: "Super Family A", capacity: 6, area: "7x7.5 (52.50 m²)", normal: 804037500, cashKeras: 640401300, promoTunai: 652522500, bookingFee: 25000000, category: "Super Family" },
+  { no: 10, name: "Super Family B", capacity: 8, area: "8x12 (96.00 m²)", normal: 1470240000, cashKeras: 1171019520, promoTunai: 1193184000, bookingFee: 25000000, category: "Super Family" },
+  { no: 11, name: "Super Family C", capacity: 8, area: "12x6.3 (75.60 m²)", normal: 1157814000, cashKeras: 922177872, promoTunai: 939632400, bookingFee: 25000000, category: "Super Family" },
+  { no: 12, name: "Super Family D", capacity: 8, area: "7.8x7.75 (60.45 m²)", normal: 925791750, cashKeras: 737376354, promoTunai: 751333050, bookingFee: 25000000, category: "Super Family" },
+  { no: 13, name: "Super Family G", capacity: 8, area: "10x10 (100.00 m²)", normal: 1531500000, cashKeras: 1219812000, promoTunai: 1242900000, bookingFee: 25000000, category: "Super Family" },
+  { no: 14, name: "Royal Family", capacity: 14, area: "14.75x14.85 (219.03 m²)", normal: 3353985000, cashKeras: 2671388280, promoTunai: 2721951000, bookingFee: 50000000, category: "Royal Family" },
+  { no: 15, name: "Royal Family A", capacity: 14, area: "15x15 (225.00 m²)", normal: 3445875000, cashKeras: 2744577000, promoTunai: 2796525000, bookingFee: 50000000, category: "Royal Family" },
+  { no: 16, name: "Royal Family AB", capacity: 16, area: "16.5x15 (247.50 m²)", normal: 3790462500, cashKeras: 3019034700, promoTunai: 3076177500, bookingFee: 50000000, category: "Royal Family" },
+  { no: 17, name: "Royal Family C", capacity: 12, area: "11x15 (165.00 m²)", normal: 2526975000, cashKeras: 2012689800, promoTunai: 2050785000, bookingFee: 50000000, category: "Royal Family" },
+  { no: 18, name: "Royal Family D", capacity: 12, area: "13x15 (195.00 m²)", normal: 2986425000, cashKeras: 2378633400, promoTunai: 2423655000, bookingFee: 50000000, category: "Royal Family" },
+  { no: 19, name: "Royal Family E", capacity: 12, area: "9x15 (135.00 m²)", normal: 2067525000, cashKeras: 1646746200, promoTunai: 1677915000, bookingFee: 50000000, category: "Royal Family" },
+  { no: 20, name: "Royal Family G", capacity: 12, area: "12x14.5 (174.00 m²)", normal: 2664810000, cashKeras: 2122472880, promoTunai: 2162646000, bookingFee: 50000000, category: "Royal Family" },
+  { no: 21, name: "Royal Family H", capacity: 18, area: "12x19 (228.00 m²)", normal: 3491820000, cashKeras: 2781171360, promoTunai: 2833812000, bookingFee: 50000000, category: "Royal Family" },
+  { no: 22, name: "Royal Family I", capacity: 12, area: "10.5x16.8 (176.19 m²)", normal: 2698349850, cashKeras: 2149186763, promoTunai: 2189865510, bookingFee: 50000000, category: "Royal Family" },
+];
+
+export const ADDITIONAL_COSTS = {
+  mandatory: {
+    title: "Prosesi Pemakaman & Batu Nisan Granit Solid",
+    price: 25500000,
+    desc: "Wajib saat pemakaman: Prosesi pemakaman syar'i lengkap + Batu nisan granit solid permanen (Rp 25.500.000)"
+  },
+  optional: [
+    { name: "Mobil Jenazah / Ambulance", price: 2500000, desc: "Transportasi penjemputan Jabodetabek (Rp 2.500.000)" },
+    { name: "Pemulasaraan Jenazah Complete", price: 3500000, desc: "Memandikan, mengkafani, & perlengkapan air mawar (Rp 3.000.000 - Rp 4.000.000)" },
+    { name: "Layanan Relokasi Makam", price: 0, desc: "Hubungi Unit Pelayanan Khusus" }
+  ],
+  tombLandscape: [
+    { type: "Single", range: "Rp 5.000.000" },
+    { type: "Family", range: "Rp 11.000.000 - Rp 33.000.000" },
+    { type: "Super Family", range: "Rp 28.000.000 - Rp 452.000.000" },
+    { type: "Royal Family", range: "Rp 1.190.000.000 - Rp 1.610.000.000" }
+  ]
+};
+
 export const PLOT_TYPES = [
   {
     id: "single",
     name: "Tipe Single",
-    subtitle: "Solusi Perorangan / Paket Hemat",
+    subtitle: "Solusi Perorangan / Paket Pre-Need Hemat",
     area: "4.5 m² (1.5m x 3m)",
     capacity: "1 Lubang / Kapasitas 1 Jenazah",
     walkway: "Walkway 0.9m di sekeliling kavling",
@@ -99,10 +147,13 @@ export const PLOT_TYPES = [
       "Gundukan rumput jepang pilihan",
       "Nisan batu granit solid berkualitas",
       "Akses jalan setapak 0.9m",
-      "Tersedia paket keluarga 10 unit kavling"
+      "Harga Cash Keras (20%+2%): Rp 54.891.540",
+      "Promo Tunai (20%): Rp 55.930.500",
+      "Booking Fee: Rp 1.000.000"
     ],
-    priceEst: "Mulai dari Rp 40.000.000,-",
-    recommendedFor: "Perorangan / Cadangan Pribadi",
+    priceEst: "Rp 54.891.540 (Cash Keras)",
+    normalPrice: "Rp 68.917.500",
+    recommendedFor: "Perorangan / Cadangan Pre-Need",
     badge: "Paling Populer Pre-Need"
   },
   {
@@ -114,13 +165,16 @@ export const PLOT_TYPES = [
     walkway: "Pagar pembatas tanaman asri & walkway",
     image: "/images/double_plot.jpg",
     features: [
-      "Varian B / C / D dengan layout eksklusif",
+      "Tersedia Varian Standard, B, C, D, & Super Double",
       "Pembatas tanaman pembatas asri (hedge)",
       "2 nisan batu granit solid berdampingan",
       "Bebas perawatan rumput selamanya",
-      "Privasi ziarah keluarga lebih terjaga"
+      "Harga Cash Keras (20%+2%): Rp 166.504.338",
+      "Promo Tunai (20%): Rp 169.655.850",
+      "Booking Fee: Rp 5.000.000"
     ],
-    priceEst: "Mulai dari Rp 110.000.000,-",
+    priceEst: "Rp 166.504.338 (Cash Keras)",
+    normalPrice: "Rp 209.049.750",
     recommendedFor: "Pasangan Suami Istri",
     badge: "Best Value Couple"
   },
@@ -128,24 +182,26 @@ export const PLOT_TYPES = [
     id: "family",
     name: "Tipe Family (A / B)",
     subtitle: "Perencanaan Makam Keluarga Inti",
-    area: "22.75 m² - 26.25 m² (3.5m x 7.5m)",
+    area: "22.75 m² - 26.25 m²",
     capacity: "4 Lubang / Kapasitas 4 Jenazah",
     walkway: "Walkway 1.2m dengan perkerasan batu alam",
     image: "/images/double_plot.jpg",
     features: [
-      "Kapasitas 4 lubang pemakaman",
+      "Kapasitas 4 lubang pemakaman (Varian A & B)",
       "Desain lanskap pembatas tanaman elegan",
       "Walkway pribadi 1.2m",
-      "Privasi penuh saat acara ziarah keluarga",
-      "Garansi pemeliharaan rumput seumur hidup"
+      "Harga Cash Keras (20%+2%): Rp 277.507.230 - Rp 320.200.650",
+      "Promo Tunai (20%): Rp 282.759.750 - Rp 326.261.250",
+      "Booking Fee: Rp 15.000.000"
     ],
-    priceEst: "Mulai dari Rp 240.000.000,-",
+    priceEst: "Rp 277.507.230 (Cash Keras)",
+    normalPrice: "Rp 348.416.250",
     recommendedFor: "Keluarga Inti (Orang Tua & Anak)",
     badge: "Keluarga Inti"
   },
   {
     id: "super-family",
-    name: "Tipe Super Family (A/B/D/G)",
+    name: "Tipe Super Family (A/B/C/D/G)",
     subtitle: "Kavling Megah Keluarga Besar",
     area: "52.5 m² - 100 m²",
     capacity: "6 - 8 Lubang Pemakaman",
@@ -155,30 +211,32 @@ export const PLOT_TYPES = [
       "Kapasitas 6 hingga 8 lubang",
       "Pembatas tembok/tomb batu granit eksklusif",
       "Desain khusus dengan tanaman hias premium",
-      "Area tempat duduk ziarah pribadi",
-      "Akses paling dekat dengan jalan utama site"
+      "Harga Cash Keras (20%+2%): Rp 640.401.300 - Rp 1.219.812.000",
+      "Booking Fee: Rp 25.000.000"
     ],
-    priceEst: "Mulai dari Rp 550.000.000,-",
+    priceEst: "Rp 640.401.300 (Cash Keras)",
+    normalPrice: "Rp 804.037.500",
     recommendedFor: "Keluarga Besar Lintas Generasi",
     badge: "Eksklusif & Private"
   },
   {
     id: "royal-family",
-    name: "Tipe Royal Family (A/C/D/E/G/H/AB)",
+    name: "Tipe Royal Family (Standard/A/AB/C/D/E/G/H/I)",
     subtitle: "Mahakarya Pemakaman Eksklusif & Prestige",
     area: "135 m² - 247.5 m²",
     capacity: "12 - 18 Lubang Pemakaman",
     walkway: "Gazebo Pribadi, Gapura Ukir, & Walkway batu marmer/granit",
     image: "/images/royal_family.jpg",
     features: [
-      "Kapasitas 12 hingga 18 lubang",
+      "Kapasitas 12 hingga 18 lubang pemakaman",
       "Gazebo istirahat ziarah pribadi berarsitektur Islami",
       "Gapura gerbang penyambut batu granit solid",
-      "Aksesoris batu alam & taman bunga privat",
-      "Sertifikat Pemanfaatan Lahan Prioritas YPIA"
+      "Harga Cash Keras (20%+2%): Rp 1.646.746.200 - Rp 3.019.034.700",
+      "Booking Fee: Rp 50.000.000"
     ],
-    priceEst: "Mulai dari Rp 1.200.000.000,-",
-    recommendedFor: "Trahi Trah / Syarifah / Tokoh Nasional",
+    priceEst: "Rp 1.646.746.200 (Cash Keras)",
+    normalPrice: "Rp 2.067.525.000",
+    recommendedFor: "Trah Keluarga Besar / Tokoh Nasional",
     badge: "Luxury Royal Class"
   }
 ];
@@ -216,13 +274,13 @@ export const FACILITIES = [
 ];
 
 export const UPJ_SERVICES = [
-  "Layanan Penjemputan Ambulance 24 Jam Jabodetabek & Karawang",
-  "Prosesi Pemulasaraan Jenazah lengkap (Memandikan & Mengkafani)",
-  "Penyediaan Kain Kafan, Perlengkapan, & Air Mawar",
+  "Layanan Penjemputan Ambulance 24 Jam Jabodetabek & Karawang (Rp 2.500.000)",
+  "Prosesi Pemulasaraan Jenazah lengkap (Memandikan & Mengkafani Rp 3-4jt)",
+  "Prosesi Pemakaman Syar'i & Batu Nisan Granit Solid Permanen (Wajib Rp 25.500.000)",
   "Ustadz Pendamping Sholat Jenazah & Pemimpin Doa Pemakaman",
   "Penyediaan Papan Ari, Patok Nisan Sementara, & Tenda Kerinduan",
   "Sound System, Kursi Tamu, & Dokumentasi Prosesi",
-  "Sertifikat & Pemasangan Nisan Granit Solid Permanen"
+  "Sertifikat Pemanfaatan Lahan Makam dari YPI Al Azhar"
 ];
 
 export const ROUTE_GUIDE = [
@@ -330,21 +388,21 @@ export const KNOWLEDGE_ARTICLES = [
 
 export const TESTIMONIALS = [
   {
-    quote: "Subhanallah, Al Azhar Memorial Garden tertata sangat rapi, bersih, dan asri. Saat ziarah merasa sangat tenang dan tidak ada kesan seram sama sekali. walkway-nya sangat memudahkan orang tua kami yang memakai kursi roda.",
-    name: "Drs. H. Ahmad Wijaya, M.A.",
-    role: "Keluarga Pemilik Kavling Double (Jakarta Selatan)",
-    tag: "Verified Client"
+    quote: "Subhanallah, Al Azhar Memorial Garden Karawang adalah pilihan terbaik bagi keluarga Muslim. Lingkungannya sangat asri, tenang, dan tertata rapi sesuai syariat Islam.",
+    name: "H. Ahmad Muzani",
+    role: "Ketua MPR RI",
+    tag: "Tokoh Nasional"
   },
   {
-    quote: "Sebagai Muslim, kepastian arah kiblat dan penataan syar'i adalah hal utama. Sertifikat Kemenag Karawang dan kepengurusan YPI Al Azhar memberikan ketenangan luar biasa bagi keluarga kami.",
-    name: "Hj. Ratna Kusuma & Keluarga",
-    role: "Pemilik Kavling Family (Bekasi)",
-    tag: "Verified Client"
+    quote: "Manajemen pemakaman yang profesional, bersih, dan jauh dari kesan seram. Jalur walkway di setiap baris sangat menghormati jenazah dan peziarah.",
+    name: "Ir. H. Ahmad Riza Patria, M.B.A.",
+    role: "Tokoh Publik / Mantan Wagub DKI Jakarta",
+    tag: "Tokoh Publik"
   },
   {
-    quote: "Layanan UPJ 24 jam sangat profesional dan sigap. Saat musibah tiba-tiba, tim Al Azhar mengurus semuanya dari penjemputan hingga prosesi pemakaman dengan sangat terhormat dan sesuai sunnah.",
-    name: "Bpk. Ir. Rian Harahap",
-    role: "Keluarga Pengguna Layanan UPJ",
-    tag: "Layanan Kedukaan"
+    quote: "Kepastian arah kiblat resmi Kemenag dan tata cara syar'i tanpa biaya rumput selamanya memberikan kenyamanan dan ketenangan pikiran luar biasa bagi keluarga.",
+    name: "H. Abdullah Azwar Anas, S.Pd., S.S., M.Si.",
+    role: "Menteri PAN-RB",
+    tag: "Tokoh Nasional"
   }
 ];

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { X, Calculator, Check, ArrowRight, ArrowLeft, ShieldCheck, Sparkles, Send, PhoneCall } from 'lucide-react';
-import { AGENT_INFO, PLOT_TYPES } from '../data/contentData';
+import { AGENT_INFO, PLOT_TYPES, PRICE_LIST_JULY_2026, ADDITIONAL_COSTS } from '../data/contentData';
 
 export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'single' }) {
   const [step, setStep] = useState(1);
   const [selectedPlot, setSelectedPlot] = useState(initialPlotId);
   const [needType, setNeedType] = useState('Pre-Need'); // Pre-Need, After-Need, Survey Lokasi
-  const [paymentType, setPaymentType] = useState('Tunai'); // Tunai, BTN Syariah
+  const [paymentType, setPaymentType] = useState('Cash Keras (20%+2%)'); // Cash Keras, Promo Tunai, BTN Syariah
   const [units, setUnits] = useState(1);
+  const [includeMandatoryProcession, setIncludeMandatoryProcession] = useState(false);
+  const [includeAmbulance, setIncludeAmbulance] = useState(false);
   
   // User Info
   const [name, setName] = useState('');
@@ -15,27 +17,29 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
   const [city, setCity] = useState('');
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   if (!isOpen) return null;
 
   const currentPlotObj = PLOT_TYPES.find((p) => p.id === selectedPlot) || PLOT_TYPES[0];
 
-  // Estimation multiplier logic
-  const basePrices = {
-    single: 40000000,
-    double: 110000000,
-    family: 240000000,
-    'super-family': 550000000,
-    'royal-family': 1200000000
+  // Authentic Base Prices map from PRICE_LIST_JULY_2026
+  const priceMap = {
+    single: { cashKeras: 54891540, promo: 55930500, normal: 68917500 },
+    double: { cashKeras: 166504338, promo: 169655850, normal: 209049750 },
+    family: { cashKeras: 320200650, promo: 326261250, normal: 402018750 },
+    'super-family': { cashKeras: 640401300, promo: 652522500, normal: 804037500 },
+    'royal-family': { cashKeras: 2671388280, promo: 2721951000, normal: 3353985000 }
   };
 
-  const currentPriceUnit = basePrices[selectedPlot] || 40000000;
-  const totalPriceEst = currentPriceUnit * units;
+  const selectedPrices = priceMap[selectedPlot] || priceMap.single;
+  
+  let unitBasePrice = selectedPrices.cashKeras;
+  if (paymentType === 'Promo Tunai (20%)') unitBasePrice = selectedPrices.promo;
+  if (paymentType === 'Cicilan BTN Syariah' || paymentType === 'Harga Normal') unitBasePrice = selectedPrices.normal;
 
-  // Pre-Need discount simulation factor
-  const discountRate = needType === 'Pre-Need' ? 0.10 : 0;
-  const finalEst = Math.round(totalPriceEst * (1 - discountRate));
+  let totalEst = unitBasePrice * units;
+  if (includeMandatoryProcession) totalEst += (ADDITIONAL_COSTS.mandatory.price * units);
+  if (includeAmbulance) totalEst += 2500000;
 
   const formatRupiah = (val) => {
     return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(val);
@@ -63,14 +67,14 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
       whatsapp,
       city: city || 'N/A',
       needType,
-      plotType: currentPlotObj.name,
+      plotType: `${currentPlotObj.name} (${units} Unit)`,
       paymentType,
-      units,
-      estimatedPrice: formatRupiah(finalEst),
+      agentCode: AGENT_INFO.salesCode,
+      agentName: AGENT_INFO.salesAgent,
+      estimatedPrice: formatRupiah(totalEst),
       sourceUrl: window.location.href
     };
 
-    // 1. Post to Cloudflare Worker endpoint
     try {
       await fetch('/api/leads', {
         method: 'POST',
@@ -82,11 +86,10 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
     }
 
     setIsSubmitting(false);
-    setSubmitSuccess(true);
 
-    // 2. Format WhatsApp Redirect Message
     const textMsg = encodeURIComponent(
       `*PENAWARAN KALKULATOR HARGA AL AZHAR MEMORIAL GARDEN*\n` +
+      `Ref Agent: Ibu ${AGENT_INFO.salesAgent} [${AGENT_INFO.salesCode}]\n` +
       `----------------------------------------\n` +
       `👤 *Nama:* ${name}\n` +
       `📱 *WhatsApp:* ${whatsapp}\n` +
@@ -94,15 +97,15 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
       `🏞️ *Tipe Kavling:* ${currentPlotObj.name} (${units} Unit)\n` +
       `📋 *Kebutuhan:* ${needType}\n` +
       `💳 *Skema Pembayaran:* ${paymentType}\n` +
-      `💰 *Estimasi Biaya:* ${formatRupiah(finalEst)}\n` +
+      `💰 *Estimasi Biaya:* ${formatRupiah(totalEst)}\n` +
       `----------------------------------------\n` +
-      `Mohon dibantu brosur resmi, denah peta lokasi, dan tata cara booking lokasi survey. Terima kasih.`
+      `Mohon dibantu brosur resmi PDF Price List Juli 2026 & tata cara booking survey lokasi. Terima kasih.`
     );
 
     setTimeout(() => {
       window.open(`https://wa.me/${AGENT_INFO.phone}?text=${textMsg}`, '_blank');
       onClose();
-    }, 800);
+    }, 600);
   };
 
   return (
@@ -120,14 +123,14 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
 
           <div className="flex items-center gap-2 text-xs font-bold text-[#F4D068] uppercase tracking-wider mb-1">
             <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-            <span>Interactive Price & Plot Calculator</span>
+            <span>Memorial Partner: Ibu {AGENT_INFO.salesAgent} [{AGENT_INFO.salesCode}]</span>
           </div>
 
           <h3 className="font-serif-header text-2xl font-bold text-white">
-            Kalkulator Estimasi Lahan Makam Al Azhar
+            Kalkulator Pricing Makam Juli 2026
           </h3>
           <p className="text-xs text-gray-200 mt-1">
-            Simulasi biaya transparan dengan jaminan Bebas Biaya Pemeliharaan Rumput Selamanya.
+            Simulasi biaya resmi transparan dengan potongan promo Cash Keras (20%+2%) & Bebas Perawatan Rumput Selamanya.
           </p>
 
           {/* Stepper Bar */}
@@ -139,12 +142,12 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
             <div className="w-8 h-[2px] bg-white/20" />
             <div className={`flex items-center gap-1.5 font-bold ${step >= 2 ? 'text-[#F4D068]' : 'text-gray-400'}`}>
               <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">2</span>
-              <span>Kebutuhan & Bayar</span>
+              <span>Skema Promo & Opsi</span>
             </div>
             <div className="w-8 h-[2px] bg-white/20" />
             <div className={`flex items-center gap-1.5 font-bold ${step >= 3 ? 'text-[#F4D068]' : 'text-gray-400'}`}>
               <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">3</span>
-              <span>Kirim ke WhatsApp</span>
+              <span>Kirim WhatsApp</span>
             </div>
           </div>
         </div>
@@ -157,7 +160,7 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-bold text-gray-800 mb-2">
-                  1. Pilih Tipe Kavling Makam:
+                  1. Pilih Tipe Kavling Makam (Price List Juli 2026):
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {PLOT_TYPES.map((plot) => (
@@ -179,13 +182,15 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
                         )}
                       </div>
                       <p className="text-xs text-gray-600 mt-1">{plot.area} &bull; {plot.capacity}</p>
-                      <p className="text-xs font-extrabold text-[#0F4C3A] mt-2">{plot.priceEst}</p>
+                      <div className="mt-2 text-xs">
+                        <span className="text-gray-400 line-through mr-2">{plot.normalPrice}</span>
+                        <span className="font-extrabold text-[#0F4C3A]">{plot.priceEst}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Number of Units */}
               <div>
                 <label className="block text-sm font-bold text-gray-800 mb-2">
                   Jumlah Unit Kavling:
@@ -215,25 +220,25 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-bold text-gray-800 mb-2">
-                  2. Pilih Jenis Kebutuhan:
+                  2. Pilih Skema Harga & Promo:
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { id: 'Pre-Need', title: 'Pre-Need (Persiapan)', desc: 'Persiapan sejak dini, kunci harga hemat 10%' },
-                    { id: 'After-Need', title: 'After-Need (Saat Ini)', desc: 'Penggunaan langsung saat musibah duka' },
-                    { id: 'Survey Lokasi', title: 'Booking Survey', desc: 'Jadwal kunjungan melihat lahan langsung' }
+                    { id: 'Cash Keras (20%+2%)', title: 'Cash Keras (20%+2%)', desc: `Hemat Terbesar: ${formatRupiah(selectedPrices.cashKeras)}` },
+                    { id: 'Promo Tunai (20%)', title: 'Promo Tunai (20%)', desc: `Diskon 20%: ${formatRupiah(selectedPrices.promo)}` },
+                    { id: 'Cicilan BTN Syariah', title: 'Cicilan BTN Syariah', desc: `Harga Normal: ${formatRupiah(selectedPrices.normal)}` }
                   ].map((option) => (
                     <div
                       key={option.id}
-                      onClick={() => setNeedType(option.id)}
+                      onClick={() => setPaymentType(option.id)}
                       className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                        needType === option.id
+                        paymentType === option.id
                           ? 'border-[#0F4C3A] bg-emerald-50/80 shadow-md'
                           : 'border-gray-200 hover:border-gray-300 bg-white'
                       }`}
                     >
                       <h5 className="font-bold text-sm text-[#0D2A4A]">{option.title}</h5>
-                      <p className="text-xs text-gray-600 mt-1">{option.desc}</p>
+                      <p className="text-xs text-[#0F4C3A] font-bold mt-1">{option.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -241,47 +246,47 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
 
               <div>
                 <label className="block text-sm font-bold text-gray-800 mb-2">
-                  3. Skema Pembayaran yang Diinginkan:
+                  3. Tambahkan Layanan Tambahan (Opsional):
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div
-                    onClick={() => setPaymentType('Tunai')}
-                    className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                      paymentType === 'Tunai'
-                        ? 'border-[#0F4C3A] bg-emerald-50/80'
-                        : 'border-gray-200 bg-white'
-                    }`}
-                  >
-                    <h5 className="font-bold text-sm text-[#0D2A4A]">Tunai / Cash Hard</h5>
-                    <p className="text-xs text-gray-600 mt-1">Pembayaran sekaligus dengan potongan penawaran khusus.</p>
-                  </div>
+                <div className="space-y-2 text-xs">
+                  <label className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={includeMandatoryProcession}
+                      onChange={(e) => setIncludeMandatoryProcession(e.target.checked)}
+                      className="w-4 h-4 text-[#0F4C3A] rounded border-gray-300"
+                    />
+                    <span>
+                      <strong>Sertakan Biaya Prosesi & Nisan Granit Wajib:</strong> + Rp 25.500.000 / lubang
+                    </span>
+                  </label>
 
-                  <div
-                    onClick={() => setPaymentType('Cicilan BTN Syariah')}
-                    className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                      paymentType === 'Cicilan BTN Syariah'
-                        ? 'border-[#0F4C3A] bg-emerald-50/80'
-                        : 'border-gray-200 bg-white'
-                    }`}
-                  >
-                    <h5 className="font-bold text-sm text-[#0D2A4A]">Cicilan Syariah (BTN Syariah)</h5>
-                    <p className="text-xs text-gray-600 mt-1">Angsuran ringan secara syariah tanpa akad risih.</p>
-                  </div>
+                  <label className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={includeAmbulance}
+                      onChange={(e) => setIncludeAmbulance(e.target.checked)}
+                      className="w-4 h-4 text-[#0F4C3A] rounded border-gray-300"
+                    />
+                    <span>
+                      <strong>Sertakan Ambulans Penjemputan Jabodetabek:</strong> + Rp 2.500.000
+                    </span>
+                  </label>
                 </div>
               </div>
 
               {/* Instant Calculation Summary Box */}
               <div className="p-5 rounded-2xl bg-gradient-to-br from-[#0F4C3A] to-[#0D2A4A] text-white space-y-2 border border-[#D4AF37]/30 shadow-md">
                 <div className="flex justify-between items-center text-xs text-yellow-200">
-                  <span>Estimasi Ringkasan Kalkulasi:</span>
+                  <span>Ringkasan Biaya Simulasi:</span>
                   <span className="font-bold uppercase tracking-wider">{currentPlotObj.name} ({units} Unit)</span>
                 </div>
                 <div className="flex justify-between items-baseline">
                   <span className="text-sm font-medium">Estimasi Biaya Akhir:</span>
-                  <span className="text-2xl font-extrabold text-[#F4D068]">{formatRupiah(finalEst)}</span>
+                  <span className="text-2xl font-extrabold text-[#F4D068]">{formatRupiah(totalEst)}</span>
                 </div>
                 <p className="text-[11px] text-gray-300 italic">
-                  *Termasuk Sertifikat Pemanfaatan Lahan YPIA, walkway batu alam, & Bebas Biaya Rumput Selamanya.
+                  *Pricelist Resmi Juli 2026 &bull; Bebas Biaya Rumput Selamanya &bull; Agent Code: Ibu Corina [{AGENT_INFO.salesCode}]
                 </p>
               </div>
             </div>
@@ -293,7 +298,7 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
               <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-[#0F4C3A] shrink-0" />
                 <span>
-                  Lengkapi data untuk mengunduh Pricelist PDF Resmi & menghubungkan Anda secara otomatis ke WhatsApp Official Sales Agent.
+                  Penawaran Anda akan terhubung langsung ke Ibu <strong>{AGENT_INFO.salesAgent} ({AGENT_INFO.salesCode})</strong>, Memorial Partner Resmi Al Azhar.
                 </span>
               </div>
 
@@ -319,7 +324,7 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
                   <input
                     type="tel"
                     required
-                    placeholder="Contoh: 08123456789"
+                    placeholder="Contoh: 081310091299"
                     value={whatsapp}
                     onChange={(e) => setWhatsapp(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-[#0F4C3A] focus:outline-none"
@@ -342,10 +347,11 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
 
               {/* Summary Review Card */}
               <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 text-xs space-y-1.5 text-gray-700">
+                <p><strong>Memorial Partner:</strong> Ibu {AGENT_INFO.salesAgent} [{AGENT_INFO.salesCode}]</p>
                 <p><strong>Kavling Dipilih:</strong> {currentPlotObj.name} ({units} Unit)</p>
-                <p><strong>Kebutuhan:</strong> {needType} | <strong>Skema:</strong> {paymentType}</p>
+                <p><strong>Skema Pembayaran:</strong> {paymentType}</p>
                 <p className="text-sm font-bold text-[#0F4C3A]">
-                  Total Estimasi: {formatRupiah(finalEst)}
+                  Total Estimasi Biaya: {formatRupiah(totalEst)}
                 </p>
               </div>
 
@@ -355,11 +361,11 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
                 className="w-full py-4 rounded-xl bg-gradient-to-r from-[#0F4C3A] via-[#0D2A4A] to-[#083327] text-white font-bold text-sm shadow-xl hover:brightness-110 transition-all flex items-center justify-center gap-2 border border-[#D4AF37]/40"
               >
                 {isSubmitting ? (
-                  <span>Menyiapkan Lead Data...</span>
+                  <span>Menyiapkan Data Penawaran...</span>
                 ) : (
                   <>
                     <Send className="w-4 h-4 text-[#F4D068]" />
-                    <span>Dapatkan Penawaran via WhatsApp Direct</span>
+                    <span>Dapatkan Penawaran via WhatsApp Direct [AZHR-10306]</span>
                   </>
                 )}
               </button>
