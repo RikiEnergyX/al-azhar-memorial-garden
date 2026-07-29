@@ -1,96 +1,119 @@
 import React, { useState } from 'react';
-import { MessageCircle, X, Sparkles, PhoneCall } from 'lucide-react';
+import { MessageCircle, X, Sparkles, PhoneCall, ChevronUp, ArrowRight } from 'lucide-react';
 import { AGENT_INFO } from '../data/contentData';
 
 export default function FloatingWhatsApp() {
   const [popupOpen, setPopupOpen] = useState(false);
 
-  const handleOpenWa = (topic = 'General Consultation') => {
+  const handleOpenWa = (topic = 'Konsultasi Direct WhatsApp') => {
     const text = encodeURIComponent(
-      `Assalamu'alaikum Warahmatullahi Wabarakatuh, saya ingin bertanya info lengkap mengenai Lahan Makam Al Azhar Memorial Garden (${topic}).`
+      `Assalamu'alaikum Warahmatullahi Wabarakatuh, saya ingin berkonsultasi mengenai Lahan Makam Al Azhar Memorial Garden (${topic}).`
     );
     window.open(`https://wa.me/${AGENT_INFO.phone}?text=${text}`, '_blank');
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-3">
+    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
       
-      {/* Quick Popup Bubble */}
+      {/* Quick Popup Menu (Centered above the pill) */}
       {popupOpen && (
-        <div className="w-80 bg-white rounded-2xl shadow-2xl border border-[#D4AF37]/40 p-4 space-y-3 animate-fadeIn text-gray-800 text-xs">
-          <div className="flex items-center justify-between border-b border-gray-100 pb-2">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#0F4C3A] text-white flex items-center justify-center font-bold text-xs">
+        <div className="mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border-2 border-[#D4AF37]/40 p-5 space-y-4 animate-fadeIn text-gray-800 text-xs">
+          <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0F4C3A] to-[#0D2A4A] text-[#F4D068] flex items-center justify-center font-bold text-xs shadow-sm border border-[#D4AF37]/30">
                 AMG
               </div>
               <div>
-                <h4 className="font-bold text-[#0D2A4A]">Sales Agent Al Azhar</h4>
+                <h4 className="font-serif-header text-sm font-bold text-[#0D2A4A]">Official Sales Consultant</h4>
                 <span className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                  Online 24/7 Siaga
+                  Online 24/7 Siaga Bantuan
                 </span>
               </div>
             </div>
             <button
               onClick={() => setPopupOpen(false)}
-              className="text-gray-400 hover:text-gray-600 p-1"
+              className="text-gray-400 hover:text-gray-600 p-1.5 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Close popup"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           <p className="text-gray-600 leading-relaxed font-sans">
-            Assalamu'alaikum! Ada yang bisa kami bantu mengenai pilihan kavling makam Muslim Al Azhar, simulasi harga, atau booking survey lokasi?
+            Assalamu'alaikum! Silakan pilih layanan cepat untuk terhubung langsung via WhatsApp:
           </p>
 
-          <div className="space-y-1.5 pt-1">
+          <div className="space-y-2">
             <button
               onClick={() => handleOpenWa('Konsultasi Pre-Need')}
-              className="w-full py-2 px-3 rounded-lg bg-emerald-50 text-[#0F4C3A] font-bold text-left hover:bg-emerald-100 transition-all flex items-center justify-between"
+              className="w-full py-2.5 px-3.5 rounded-xl bg-emerald-50 text-[#0F4C3A] font-bold text-left hover:bg-emerald-100 transition-all flex items-center justify-between border border-emerald-200"
             >
-              <span>1. Konsultasi Pre-Need (Hemat 10%)</span>
-              <span>&rarr;</span>
+              <span className="flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+                1. Konsultasi Persiapan Pre-Need (Hemat 10%)
+              </span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
+
             <button
-              onClick={() => handleOpenWa('Minta Brosur Pricelist')}
-              className="w-full py-2 px-3 rounded-lg bg-emerald-50 text-[#0F4C3A] font-bold text-left hover:bg-emerald-100 transition-all flex items-center justify-between"
+              onClick={() => handleOpenWa('Minta Brosur Pricelist PDF')}
+              className="w-full py-2.5 px-3.5 rounded-xl bg-emerald-50 text-[#0F4C3A] font-bold text-left hover:bg-emerald-100 transition-all flex items-center justify-between border border-emerald-200"
             >
-              <span>2. Minta Brosur Pricelist PDF</span>
-              <span>&rarr;</span>
+              <span className="flex items-center gap-2">
+                <PhoneCall className="w-3.5 h-3.5 text-[#0F4C3A]" />
+                2. Minta Brosur & Pricelist PDF Resmi
+              </span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
+
             <button
-              onClick={() => handleOpenWa('Booking Survey Lokasi')}
-              className="w-full py-2 px-3 rounded-lg bg-emerald-50 text-[#0F4C3A] font-bold text-left hover:bg-emerald-100 transition-all flex items-center justify-between"
+              onClick={() => handleOpenWa('Booking Survey Lokasi Site')}
+              className="w-full py-2.5 px-3.5 rounded-xl bg-emerald-50 text-[#0F4C3A] font-bold text-left hover:bg-emerald-100 transition-all flex items-center justify-between border border-emerald-200"
             >
-              <span>3. Booking Survey Lokasi Site</span>
-              <span>&rarr;</span>
+              <span className="flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+                3. Booking Kunjungan Survey Lokasi Site
+              </span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
       )}
 
-      {/* Main Floating Trigger Button */}
+      {/* Main Centered Floating Sticky Pill Button */}
       <div className="flex items-center gap-2">
-        <button
-          onClick={() => setPopupOpen(!popupOpen)}
-          className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-[#0F4C3A] font-bold text-xs shadow-xl border border-emerald-300 hover:bg-emerald-50 transition-all"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-          <span>Tanya Sales Agent</span>
-        </button>
-
-        <button
-          onClick={() => handleOpenWa('Sticky Button Direct')}
-          aria-label="Direct WhatsApp Contact"
-          className="relative w-14 h-14 rounded-full bg-gradient-to-tr from-[#25D366] via-[#128C7E] to-[#075E54] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform border-2 border-white ring-4 ring-emerald-500/20 group"
-        >
-          <MessageCircle className="w-7 h-7 fill-current group-hover:rotate-12 transition-transform" />
+        
+        {/* Pill Trigger */}
+        <div className="flex items-center bg-gradient-to-r from-[#0F4C3A] via-[#128C7E] to-[#25D366] text-white rounded-full p-1.5 pr-5 shadow-2xl border-2 border-white/90 ring-4 ring-emerald-500/20 hover:scale-105 transition-all">
           
-          {/* Notification Badge */}
-          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-[9px] font-extrabold flex items-center justify-center animate-bounce border border-white">
-            1
-          </span>
-        </button>
+          {/* Main Direct WhatsApp Click */}
+          <button
+            onClick={() => handleOpenWa('Sticky Bottom Center Direct')}
+            className="flex items-center gap-3 font-bold text-xs sm:text-sm tracking-wide"
+          >
+            <div className="relative w-11 h-11 rounded-full bg-white text-[#25D366] flex items-center justify-center shadow-md shrink-0">
+              <MessageCircle className="w-6 h-6 fill-current" />
+              <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-red-500 text-white text-[8px] font-extrabold flex items-center justify-center animate-bounce border border-white">
+                1
+              </span>
+            </div>
+
+            <span className="hidden xs:inline">Konsultasi Direct WhatsApp 24 Jam</span>
+            <span className="xs:hidden">Chat WhatsApp 24/7</span>
+          </button>
+
+          {/* Quick Options Expand Toggle */}
+          <button
+            onClick={() => setPopupOpen(!popupOpen)}
+            className="ml-3 pl-3 border-l border-white/30 text-emerald-100 hover:text-white transition-colors"
+            aria-label="Toggle quick options"
+          >
+            <ChevronUp className={`w-4 h-4 transition-transform duration-300 ${popupOpen ? 'rotate-180' : ''}`} />
+          </button>
+
+        </div>
+
       </div>
 
     </div>
