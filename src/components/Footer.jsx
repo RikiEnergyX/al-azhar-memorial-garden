@@ -103,7 +103,14 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Official Authorized Sales Agent Al Azhar Memorial Garden. All Rights Reserved.
           </p>
           <p className="text-gray-400">
-            Powered by Cloudflare Pages & Workers Serverless CDN.
+            Powered by:{' '}
+            <a href="https://www.energyx.co.id" target="_blank" rel="noopener noreferrer" className="hover:text-[#F4D068] transition-colors underline">
+              https://www.energyx.co.id
+            </a>
+            {' | '}
+            <a href="https://www.energyx369.cloud" target="_blank" rel="noopener noreferrer" className="hover:text-[#F4D068] transition-colors underline">
+              https://www.energyx369.cloud
+            </a>
           </p>
         </div>
 
