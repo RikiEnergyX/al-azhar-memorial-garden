@@ -390,20 +390,23 @@ export const KNOWLEDGE_ARTICLES = [
 export const TESTIMONIALS = [
   {
     quote: "Subhanallah, Al Azhar Memorial Garden Karawang adalah pilihan terbaik bagi keluarga Muslim. Lingkungannya sangat asri, tenang, dan tertata rapi sesuai syariat Islam.",
-    name: "H. Ahmad Muzani",
-    role: "Ketua MPR RI",
+    name: "H. Achmad Muzani",
+    role: "Ketua MPR RI & Tokoh Muslim Nasional",
+    avatar: "/images/Achmad Muzani.jpeg",
     tag: "Tokoh Nasional"
   },
   {
-    quote: "Manajemen pemakaman yang profesional, bersih, dan jauh dari kesan seram. Jalur walkway di setiap baris sangat menghormati jenazah dan peziarah.",
-    name: "Ir. H. Ahmad Riza Patria, M.B.A.",
-    role: "Tokoh Publik / Mantan Wagub DKI Jakarta",
-    tag: "Tokoh Publik"
+    quote: "Al Azhar Memorial Garden memberikan kepastian hukum syariah dan sertifikasi kiblat yang sangat menentramkan. Pengelolaan makam taman Muslim yang profesional, asri, dan rapi ini menjadi teladan pelayanan pemakaman syar'i di Indonesia.",
+    name: "Prof. Dr. Jimly Asshiddiqie, S.H.",
+    role: "Tokoh Nasional & Pakar Hukum Tata Negara",
+    avatar: "/images/Jimly Asshidiqie.jpeg",
+    tag: "Tokoh Nasional"
   },
   {
-    quote: "Kepastian arah kiblat resmi Kemenag dan tata cara syar'i tanpa biaya rumput selamanya memberikan kenyamanan dan ketenangan pikiran luar biasa bagi keluarga.",
-    name: "H. Abdullah Azwar Anas, S.Pd., S.S., M.Si.",
-    role: "Menteri PAN-RB",
-    tag: "Tokoh Nasional"
+    quote: "Persiapan lahan makam syariah (Pre-Need) adalah langkah bijak keluarga. Di Al Azhar Memorial Garden, jalur walkway di setiap baris sangat menghormati makam agar tidak terinjak, serta bebas biaya perawatan rumput selamanya.",
+    name: "Teuku Wisnu",
+    role: "Public Figure & Enterpreneur Hijrah",
+    avatar: "/images/Teuku Wisnu.jpeg",
+    tag: "Public Figure"
   }
 ];

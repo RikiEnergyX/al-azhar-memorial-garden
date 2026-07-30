@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Quote, Star, ShieldCheck, CheckCircle2, ChevronLeft, ChevronRight, Sparkles, Building2, UserCheck } from 'lucide-react';
+import { Quote, Star, CheckCircle2, Sparkles, UserCheck } from 'lucide-react';
 import { TESTIMONIALS } from '../data/contentData';
 
 export default function DeepSocialProof() {
@@ -8,43 +8,33 @@ export default function DeepSocialProof() {
   const caseStudies = [
     {
       id: 'muzani',
-      name: 'H. Ahmad Muzani',
-      role: 'Ketua MPR RI & Tokoh Muslim Nasional',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300',
+      name: TESTIMONIALS[0].name,
+      role: TESTIMONIALS[0].role,
+      avatar: TESTIMONIALS[0].avatar,
       category: 'Kehormatan & Kepastian Syariah',
-      quote: 'Al Azhar Memorial Garden memberikan kepastian hukum syariah yang sangat menentramkan. Penataan taman yang asri, bersih, dan bebas banjir menjadikan tempat ini sangat layak sebagai tempat peristirahatan terakhir keluarga Muslim Indonesia.',
-      highlight: 'Kepastian Syariat & Standar Pengelolaan Internasional',
-      verification: 'Diverifikasi Tokoh Publik'
+      quote: TESTIMONIALS[0].quote,
+      highlight: 'Lingkungan Asri, Clean & Bebas Banjir',
+      verification: 'Diverifikasi Tokoh Nasional'
     },
     {
-      id: 'riza',
-      name: 'Ir. H. Ahmad Riza Patria, MBA',
-      role: 'Tokoh Publik / Mantan Wakil Gubernur DKI Jakarta',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300',
-      category: 'Kenyamanan Peziarah & Fasilitas',
-      quote: 'Kemudahan akses tol langsung MBZ dan fasilitas pendukung seperti mushola AC dan penataan nisan batu rata rumput membuat ziarah terasa begitu khusyuk. Pengelolaan oleh YPI Al Azhar sangat profesional.',
-      highlight: 'Akses Tol MBZ & Walkway Khusus Peziarah',
-      verification: 'Diverifikasi Tokoh Publik'
+      id: 'jimly',
+      name: TESTIMONIALS[1].name,
+      role: TESTIMONIALS[1].role,
+      avatar: TESTIMONIALS[1].avatar,
+      category: 'Kepastian Hukum & Legalitas Syar\'i',
+      quote: TESTIMONIALS[1].quote,
+      highlight: 'Standardisasi Syariat & Sertifikasi Kiblat Kemenag',
+      verification: 'Diverifikasi Tokoh Nasional'
     },
     {
-      id: 'anas',
-      name: 'H. Abdullah Azwar Anas, M.Si',
-      role: 'Menteri PAN-RB / Tokoh Pemerintahan',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300',
-      category: 'Sistem Manajemen Mutu ISO 9001',
-      quote: 'Penerapan ISO 9001 dalam pengelolaan makam syariah adalah inovasi luar biasa. Bebas biaya pemeliharaan rumput selamanya memberikan keringanan jangka panjang bagi setiap ahli waris.',
-      highlight: 'Sertifikasi ISO 9001 & Bebas Iuran Perawatan',
-      verification: 'Diverifikasi Tokoh Publik'
-    },
-    {
-      id: 'relokasi',
-      name: 'Drs. H. Bambang Soetjipto',
-      role: 'Pengusaha & Ahli Waris Keluarga (Jakarta Selatan)',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300',
-      category: 'Studi Kasus Relokasi TPU Umum',
-      quote: 'Proses pemindahan makam almarhum ayah kami dari TPU umum di Jakarta ke Al Azhar Memorial Garden berjalan sangat lancar. Tim UPJ 24 Jam mengurus seluruh dokumen legalitas IPTM dan prosesi pemakaman ulang secara 100% syar\'i.',
-      highlight: 'Relokasi Makam Bebas Ribet & 100% Syar\'i',
-      verification: 'Diverifikasi Pembeli Lahan'
+      id: 'wisnu',
+      name: TESTIMONIALS[2].name,
+      role: TESTIMONIALS[2].role,
+      avatar: TESTIMONIALS[2].avatar,
+      category: 'Persiapan Pre-Need & Adab Ziarah',
+      quote: TESTIMONIALS[2].quote,
+      highlight: 'Fasilitas Walkway & Bebas Biaya Rumput Selamanya',
+      verification: 'Diverifikasi Public Figure'
     }
   ];
 
@@ -60,30 +50,30 @@ export default function DeepSocialProof() {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-[#D4AF37]/40 text-[#F4D068] text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-4 h-4 text-[#F4D068]" />
-            <span>Kisah Nyata & Kesaksian Ketenangan Keluarga</span>
+            <span>Kesaksian Autentik Tokoh Nasional</span>
           </div>
           <h2 className="font-serif-header text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Kepercayaan Tokoh Nasional & Ribuan Keluarga Muslim
+            Kepercayaan Tokoh Nasional & Tokoh Publik Muslim
           </h2>
           <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-            Pengalaman nyata dalam merencanakan lahan pemakaman syariah, prosesi pemulasaraan, dan relokasi makam tanpa kendala.
+            Pengalaman dan pandangan tokoh nasional mengenai kepastian hukum syariat Islam, profesionalisme pengelola, dan kenyamanan peziarah di Al Azhar Memorial Garden Karawang.
           </p>
         </div>
 
-        {/* Case Study Tab Navigation */}
-        <div className="flex justify-center flex-wrap gap-2 mb-10">
+        {/* Case Study Tab Navigation (Exact 3 Testimonials) */}
+        <div className="flex justify-center flex-wrap gap-3 mb-10">
           {caseStudies.map((cs, idx) => (
             <button
               key={cs.id}
               onClick={() => setActiveTab(idx)}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 border ${
+              className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 border ${
                 activeTab === idx
-                  ? 'bg-gradient-to-r from-[#0F4C3A] to-[#0D2A4A] text-[#F4D068] border-[#D4AF37]/60 shadow-lg scale-105'
-                  : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white/10'
+                  ? 'bg-gradient-to-r from-[#0F4C3A] to-[#0D2A4A] text-[#F4D068] border-[#D4AF37] shadow-xl scale-105 ring-2 ring-[#D4AF37]/30'
+                  : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 hover:border-white/20'
               }`}
             >
-              <UserCheck className="w-4 h-4" />
-              <span>{cs.name.split(',')[0]}</span>
+              <UserCheck className="w-4 h-4 text-[#D4AF37]" />
+              <span>{cs.name}</span>
             </button>
           ))}
         </div>
@@ -95,48 +85,48 @@ export default function DeepSocialProof() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Profile Avatar & Info */}
-            <div className="lg:col-span-4 flex flex-col items-center text-center border-b lg:border-b-0 lg:border-r border-white/15 pb-6 lg:pb-0 lg:pr-8 space-y-3">
-              <div className="relative w-24 h-24 rounded-2xl overflow-hidden border-2 border-[#D4AF37] shadow-xl">
+            <div className="lg:col-span-4 flex flex-col items-center text-center border-b lg:border-b-0 lg:border-r border-white/15 pb-6 lg:pb-0 lg:pr-8 space-y-4">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#D4AF37] shadow-2xl ring-4 ring-white/10">
                 <img
                   src={caseStudies[activeTab].avatar}
                   alt={caseStudies[activeTab].name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
 
               <div>
-                <h3 className="font-serif-header text-lg font-bold text-white">
+                <h3 className="font-serif-header text-xl font-bold text-white leading-tight">
                   {caseStudies[activeTab].name}
                 </h3>
-                <p className="text-xs text-[#F4D068] font-semibold mt-0.5">
+                <p className="text-xs text-[#F4D068] font-semibold mt-1">
                   {caseStudies[activeTab].role}
                 </p>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold">
-                <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/90 border border-emerald-500/50 text-emerald-300 text-[11px] font-bold shadow-sm">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                 <span>{caseStudies[activeTab].verification}</span>
               </div>
             </div>
 
             {/* Quote Story */}
-            <div className="lg:col-span-8 space-y-4">
-              <div className="inline-block px-3 py-1 rounded-md bg-[#D4AF37]/20 text-[#F4D068] text-xs font-bold">
+            <div className="lg:col-span-8 space-y-5">
+              <div className="inline-block px-3.5 py-1.5 rounded-lg bg-[#D4AF37]/20 text-[#F4D068] text-xs font-bold border border-[#D4AF37]/30">
                 {caseStudies[activeTab].category}
               </div>
 
-              <p className="text-base sm:text-lg text-gray-100 font-serif-header italic leading-relaxed">
+              <p className="text-base sm:text-xl text-gray-100 font-serif-header italic leading-relaxed">
                 "{caseStudies[activeTab].quote}"
               </p>
 
-              <div className="pt-3 flex items-center justify-between border-t border-white/10 text-xs text-gray-400">
+              <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between border-t border-white/10 text-xs text-gray-400 gap-3">
                 <div className="flex items-center gap-1 text-[#F4D068]">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current text-[#F4D068]" />
                   ))}
                   <span className="ml-2 text-white font-bold">5.0 / 5.0 Rating Otoritas</span>
                 </div>
-                <span className="text-emerald-400 font-semibold hidden sm:inline">
+                <span className="text-emerald-400 font-bold text-xs bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-500/30 self-start sm:self-auto">
                   📌 {caseStudies[activeTab].highlight}
                 </span>
               </div>
