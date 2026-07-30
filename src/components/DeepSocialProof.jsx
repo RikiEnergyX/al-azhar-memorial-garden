@@ -168,35 +168,50 @@ export default function DeepSocialProof() {
           onClick={() => setModalData(null)}
         >
           <div
-            className="relative max-w-xl w-full bg-gray-900 border-2 border-[#D4AF37]/60 rounded-3xl p-4 sm:p-6 shadow-2xl text-center space-y-4 animate-scaleUp"
+            className="relative max-w-lg w-full bg-gray-900 border-2 border-[#D4AF37] rounded-3xl p-5 sm:p-7 shadow-2xl text-center space-y-4 animate-scaleUp"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
+            {/* Prominent High-Visibility Close Button */}
             <button
               onClick={() => setModalData(null)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-white/20 transition-all border border-white/20"
+              className="absolute -top-3 -right-3 z-50 p-2.5 rounded-full bg-[#0F4C3A] text-white hover:bg-[#0D2A4A] hover:scale-110 transition-all border-2 border-[#D4AF37] shadow-2xl cursor-pointer"
               aria-label="Tutup foto"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 text-[#F4D068]" />
             </button>
 
-            {/* Modal Image */}
-            <div className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-2xl bg-black max-h-[70vh] flex items-center justify-center">
+            {/* Modal Image Header */}
+            <div className="flex items-center justify-between border-b border-gray-800 pb-3 pr-8">
+              <span className="text-xs font-bold text-[#F4D068] uppercase tracking-wider">Foto Tokoh Autentik</span>
+              <span className="text-[11px] text-gray-400">Klik di mana saja untuk menutup</span>
+            </div>
+
+            {/* Modal Image Container */}
+            <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black max-h-[60vh] sm:max-h-[65vh] flex items-center justify-center p-1">
               <img
                 src={modalData.avatar}
                 alt={modalData.name}
-                className="max-h-[68vh] w-auto object-contain rounded-xl"
+                className="max-h-[58vh] sm:max-h-[63vh] w-auto object-contain rounded-xl"
               />
             </div>
 
-            {/* Modal Image Info */}
-            <div className="pt-2">
-              <h4 className="font-serif-header text-xl font-bold text-white">
-                {modalData.name}
-              </h4>
-              <p className="text-xs text-[#F4D068] font-semibold mt-0.5">
-                {modalData.role}
-              </p>
+            {/* Modal Image Info & Action */}
+            <div className="pt-2 space-y-3">
+              <div>
+                <h4 className="font-serif-header text-xl font-bold text-white leading-tight">
+                  {modalData.name}
+                </h4>
+                <p className="text-xs text-[#F4D068] font-semibold mt-1">
+                  {modalData.role}
+                </p>
+              </div>
+
+              <button
+                onClick={() => setModalData(null)}
+                className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-gray-200 text-xs font-bold transition-colors border border-white/10"
+              >
+                Tutup Pratinjau Foto
+              </button>
             </div>
           </div>
         </div>
