@@ -39,7 +39,7 @@ export default function AuthorityEmpathyProfile({ onOpenSurvey }) {
           <div className="lg:col-span-5 relative flex flex-col items-center">
             <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-2 ring-[#D4AF37]/40 group">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+                src="/images/corina.jpeg"
                 alt="Ibu Corina - Senior Memorial Partner Al Azhar Memorial Garden"
                 className="w-full h-[420px] object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"

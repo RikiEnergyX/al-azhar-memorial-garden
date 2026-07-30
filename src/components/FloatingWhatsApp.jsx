@@ -21,9 +21,11 @@ export default function FloatingWhatsApp() {
         <div className="mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border-2 border-[#D4AF37]/40 p-5 space-y-4 animate-fadeIn text-gray-800 text-xs">
           <div className="flex items-center justify-between border-b border-gray-100 pb-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0F4C3A] to-[#0D2A4A] text-[#F4D068] flex items-center justify-center font-bold text-xs shadow-sm border border-[#D4AF37]/30">
-                AMG
-              </div>
+              <img
+                src={AGENT_INFO.avatar}
+                alt="Ibu Corina"
+                className="w-10 h-10 rounded-full object-cover object-top border-2 border-[#D4AF37] shadow-sm shrink-0"
+              />
               <div>
                 <h4 className="font-serif-header text-sm font-bold text-[#0D2A4A]">Ibu {AGENT_INFO.salesAgent} [{AGENT_INFO.salesCode}]</h4>
                 <span className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">

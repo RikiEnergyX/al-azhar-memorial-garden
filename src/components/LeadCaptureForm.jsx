@@ -111,14 +111,20 @@ export default function LeadCaptureForm() {
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#0F4C3A] to-[#0D2A4A] border border-[#D4AF37]/30 text-xs space-y-2">
-              <div className="flex items-center gap-2 text-[#F4D068] font-bold">
-                <UserCheck className="w-4 h-4" />
-                <span>Memorial Partner Contact:</span>
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#0F4C3A] to-[#0D2A4A] border border-[#D4AF37]/30 text-xs flex items-center gap-4">
+              <img
+                src={AGENT_INFO.avatar}
+                alt="Ibu Corina"
+                className="w-14 h-14 rounded-2xl object-cover object-top border-2 border-[#D4AF37] shadow-md shrink-0"
+              />
+              <div className="space-y-1">
+                <div className="flex items-center gap-1.5 text-[#F4D068] font-bold text-[11px]">
+                  <UserCheck className="w-3.5 h-3.5" />
+                  <span>Official Memorial Partner:</span>
+                </div>
+                <p className="text-white text-sm font-extrabold">Ibu {AGENT_INFO.salesAgent} [{AGENT_INFO.salesCode}]</p>
+                <p className="text-gray-200 text-xs">WhatsApp: <strong>{AGENT_INFO.phoneFormatted}</strong></p>
               </div>
-              <p className="text-white text-sm font-extrabold">Ibu {AGENT_INFO.salesAgent} [{AGENT_INFO.salesCode}]</p>
-              <p className="text-gray-200">WhatsApp Hotline: <strong>{AGENT_INFO.phoneFormatted}</strong></p>
-              <p className="text-gray-300 text-[11px]">Al Azhar Memorial Garden Karawang</p>
             </div>
           </div>
 

@@ -3,6 +3,7 @@ export const AGENT_INFO = {
   badge: "Official Memorial Partner",
   salesAgent: "Corina",
   salesCode: "AZHR-10306",
+  avatar: "/images/corina.jpeg",
   title: "Memorial Partner Al Azhar Memorial Garden",
   phone: "6281310091299",
   phoneFormatted: "0813-1009-1299",
