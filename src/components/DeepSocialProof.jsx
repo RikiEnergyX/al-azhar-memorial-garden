@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Quote, Star, CheckCircle2, Sparkles, UserCheck } from 'lucide-react';
+import { Quote, Star, CheckCircle2, Sparkles, UserCheck, ZoomIn, X } from 'lucide-react';
 import { TESTIMONIALS } from '../data/contentData';
 
 export default function DeepSocialProof() {
   const [activeTab, setActiveTab] = useState(0);
+  const [modalData, setModalData] = useState(null);
 
   const caseStudies = [
     {
@@ -37,6 +38,14 @@ export default function DeepSocialProof() {
       verification: 'Diverifikasi Public Figure'
     }
   ];
+
+  const handleOpenModal = (study) => {
+    setModalData({
+      avatar: study.avatar,
+      name: study.name,
+      role: study.role
+    });
+  };
 
   return (
     <section className="py-20 bg-[#07172A] text-white font-sans border-b border-gray-800 relative overflow-hidden">
@@ -84,15 +93,30 @@ export default function DeepSocialProof() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            {/* Profile Avatar & Info */}
+            {/* Profile Avatar & Info (With Click to Enlarge Feature) */}
             <div className="lg:col-span-4 flex flex-col items-center text-center border-b lg:border-b-0 lg:border-r border-white/15 pb-6 lg:pb-0 lg:pr-8 space-y-4">
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#D4AF37] shadow-2xl ring-4 ring-white/10">
-                <img
-                  src={caseStudies[activeTab].avatar}
-                  alt={caseStudies[activeTab].name}
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
+              
+              <button
+                onClick={() => handleOpenModal(caseStudies[activeTab])}
+                className="relative group cursor-pointer focus:outline-none"
+                title="Klik untuk memperbesar foto"
+              >
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-[#D4AF37] shadow-2xl ring-4 ring-white/10 group-hover:scale-105 transition-transform duration-300">
+                  <img
+                    src={caseStudies[activeTab].avatar}
+                    alt={caseStudies[activeTab].name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[11px] font-bold gap-1">
+                    <ZoomIn className="w-6 h-6 text-[#F4D068] animate-bounce" />
+                    <span>Perbesar Foto</span>
+                  </div>
+                </div>
+                <span className="mt-2 inline-flex items-center gap-1 text-[10px] text-gray-300 font-medium group-hover:text-[#F4D068] transition-colors">
+                  <ZoomIn className="w-3 h-3" />
+                  Klik foto untuk memperbesar
+                </span>
+              </button>
 
               <div>
                 <h3 className="font-serif-header text-xl font-bold text-white leading-tight">
@@ -136,6 +160,47 @@ export default function DeepSocialProof() {
         </div>
 
       </div>
+
+      {/* High-Res Photo Modal Lightbox */}
+      {modalData && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fadeIn"
+          onClick={() => setModalData(null)}
+        >
+          <div
+            className="relative max-w-xl w-full bg-gray-900 border-2 border-[#D4AF37]/60 rounded-3xl p-4 sm:p-6 shadow-2xl text-center space-y-4 animate-scaleUp"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setModalData(null)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-white/20 transition-all border border-white/20"
+              aria-label="Tutup foto"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Modal Image */}
+            <div className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-2xl bg-black max-h-[70vh] flex items-center justify-center">
+              <img
+                src={modalData.avatar}
+                alt={modalData.name}
+                className="max-h-[68vh] w-auto object-contain rounded-xl"
+              />
+            </div>
+
+            {/* Modal Image Info */}
+            <div className="pt-2">
+              <h4 className="font-serif-header text-xl font-bold text-white">
+                {modalData.name}
+              </h4>
+              <p className="text-xs text-[#F4D068] font-semibold mt-0.5">
+                {modalData.role}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
