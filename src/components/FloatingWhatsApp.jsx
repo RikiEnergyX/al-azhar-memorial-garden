@@ -5,9 +5,10 @@ import { AGENT_INFO } from '../data/contentData';
 export default function FloatingWhatsApp() {
   const [popupOpen, setPopupOpen] = useState(false);
 
-  const handleOpenWa = (topic = 'Konsultasi Direct WhatsApp') => {
+  const handleOpenWa = (topic = '') => {
+    const topicText = topic ? ` mengenai *${topic}*` : '';
     const text = encodeURIComponent(
-      `Assalamu'alaikum Ibu ${AGENT_INFO.salesAgent} (${AGENT_INFO.salesCode}), saya ingin berkonsultasi mengenai Lahan Makam Al Azhar Memorial Garden (${topic}).`
+      `Assalamu'alaikum Ibu ${AGENT_INFO.salesAgent} (${AGENT_INFO.salesCode}), saya ingin berkonsultasi${topicText} di Al Azhar Memorial Garden Karawang.`
     );
     window.open(`https://wa.me/${AGENT_INFO.phone}?text=${text}`, '_blank');
   };
@@ -89,7 +90,7 @@ export default function FloatingWhatsApp() {
           
           {/* Main Direct WhatsApp Click */}
           <button
-            onClick={() => handleOpenWa('Sticky Bottom Center Direct')}
+            onClick={() => handleOpenWa('Pemesanan & Price List Lahan Makam')}
             className="flex items-center gap-3 font-bold text-xs sm:text-sm tracking-wide"
           >
             <div className="relative w-11 h-11 rounded-full bg-white text-[#25D366] flex items-center justify-center shadow-md shrink-0">
