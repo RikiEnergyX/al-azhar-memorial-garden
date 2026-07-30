@@ -98,20 +98,26 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal Note */}
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-gray-500">
-          <p>
-            &copy; {new Date().getFullYear()} Official Authorized Sales Agent Al Azhar Memorial Garden. All Rights Reserved.
-          </p>
-          <p className="text-gray-400">
-            Powered by:{' '}
-            <a href="https://www.energyx.co.id" target="_blank" rel="noopener noreferrer" className="hover:text-[#F4D068] transition-colors underline">
-              https://www.energyx.co.id
-            </a>
-            {' | '}
-            <a href="https://www.energyx369.cloud" target="_blank" rel="noopener noreferrer" className="hover:text-[#F4D068] transition-colors underline">
-              https://www.energyx369.cloud
-            </a>
-          </p>
+        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-[11px] text-gray-500">
+          <div className="space-y-1 text-left">
+            <p>
+              &copy; {new Date().getFullYear()} Official Authorized Sales Agent Al Azhar Memorial Garden. All Rights Reserved.
+            </p>
+            <p className="text-gray-400">
+              Powered by:{' '}
+              <a href="https://www.energyx.co.id" target="_blank" rel="noopener noreferrer" className="hover:text-[#F4D068] transition-colors underline">
+                https://www.energyx.co.id
+              </a>
+              {' | '}
+              <a href="https://www.energyx369.cloud" target="_blank" rel="noopener noreferrer" className="hover:text-[#F4D068] transition-colors underline">
+                https://www.energyx369.cloud
+              </a>
+            </p>
+          </div>
+
+          <div className="text-gray-400 text-left md:text-right">
+            <span>Dikelola oleh YPI Al Azhar & PT Nuansa Usaha Mandiri &bull; ISO 9001 Certified</span>
+          </div>
         </div>
 
       </div>

@@ -14,7 +14,7 @@ export default function FloatingWhatsApp() {
   };
 
   return (
-    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
       
       {/* Quick Popup Menu (Centered above the pill) */}
       {popupOpen && (
