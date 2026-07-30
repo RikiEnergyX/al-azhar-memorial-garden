@@ -60,12 +60,12 @@ export default function FloatingWhatsApp() {
             </button>
 
             <button
-              onClick={() => handleOpenWa('Minta Brosur Pricelist Juli 2026')}
+              onClick={() => handleOpenWa('Minta Brosur Pricelist Terbaru')}
               className="w-full py-2.5 px-3.5 rounded-xl bg-emerald-50 text-[#0F4C3A] font-bold text-left hover:bg-emerald-100 transition-all flex items-center justify-between border border-emerald-200"
             >
               <span className="flex items-center gap-2">
                 <PhoneCall className="w-3.5 h-3.5 text-[#0F4C3A]" />
-                2. Minta Brosur Price List Juli 2026 PDF
+                2. Minta Brosur Price List Terbaru PDF
               </span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>

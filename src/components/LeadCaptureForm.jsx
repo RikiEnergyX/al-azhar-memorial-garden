@@ -61,7 +61,7 @@ export default function LeadCaptureForm() {
       `📋 *Rencana Kebutuhan:* ${formData.needType}\n` +
       `🏞️ *Tipe Kavling Diminati:* ${formData.plotType}\n` +
       `----------------------------------------\n` +
-      `Mohon dikirimkan Brosur Price List PDF Resmi Juli 2026 & Jadwal Kunjungan Survey Lokasi.`
+      `Mohon dikirimkan Brosur Price List PDF Resmi Terbaru & Jadwal Kunjungan Survey Lokasi.`
     );
 
     setTimeout(() => {
@@ -88,7 +88,7 @@ export default function LeadCaptureForm() {
             <h2 className="font-serif-header text-3xl sm:text-4xl font-extrabold text-white leading-tight">
               Konsultasi Direct &{' '}
               <span className="text-gold-gradient block">
-                Pricelist Juli 2026
+                Pricelist Terbaru
               </span>
             </h2>
 

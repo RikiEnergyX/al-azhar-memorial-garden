@@ -44,7 +44,7 @@ export default function PlotCatalog({ onOpenCalculator, onSelectPlotForCalc }) {
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Pricelist Resmi Makam Vertical Juli 2026</span>
+            <span>Pricelist Resmi Makam Vertical Terbaru</span>
           </div>
 
           <h2 className="font-serif-header text-3xl sm:text-4xl font-extrabold text-[#0D2A4A] tracking-tight">
@@ -233,7 +233,7 @@ export default function PlotCatalog({ onOpenCalculator, onSelectPlotForCalc }) {
             
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-200">
               <span className="text-xs font-bold text-[#0D2A4A]">
-                Menampilkan {filteredTable.length} Tipe Makam (Price List Resmi Juli 2026)
+                Menampilkan {filteredTable.length} Tipe Makam (Price List Resmi Terbaru)
               </span>
               <input
                 type="text"

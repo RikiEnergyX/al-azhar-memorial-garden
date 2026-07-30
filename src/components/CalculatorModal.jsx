@@ -99,7 +99,7 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
       `💳 *Skema Pembayaran:* ${paymentType}\n` +
       `💰 *Estimasi Biaya:* ${formatRupiah(totalEst)}\n` +
       `----------------------------------------\n` +
-      `Mohon dibantu brosur resmi PDF Price List Juli 2026 & tata cara booking survey lokasi. Terima kasih.`
+      `Mohon dibantu brosur resmi PDF Price List Terbaru & tata cara booking survey lokasi. Terima kasih.`
     );
 
     setTimeout(() => {
@@ -127,7 +127,7 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
           </div>
 
           <h3 className="font-serif-header text-2xl font-bold text-white">
-            Kalkulator Pricing Makam Juli 2026
+            Kalkulator Pricing Makam Terbaru
           </h3>
           <p className="text-xs text-gray-200 mt-1">
             Simulasi biaya resmi transparan dengan potongan promo Cash Keras (20%+2%) & Bebas Perawatan Rumput Selamanya.
@@ -160,7 +160,7 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-bold text-gray-800 mb-2">
-                  1. Pilih Tipe Kavling Makam (Price List Juli 2026):
+                  1. Pilih Tipe Kavling Makam (Price List Terbaru):
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {PLOT_TYPES.map((plot) => (
@@ -286,7 +286,7 @@ export default function CalculatorModal({ isOpen, onClose, initialPlotId = 'sing
                   <span className="text-2xl font-extrabold text-[#F4D068]">{formatRupiah(totalEst)}</span>
                 </div>
                 <p className="text-[11px] text-gray-300 italic">
-                  *Pricelist Resmi Juli 2026 &bull; Bebas Biaya Rumput Selamanya &bull; Agent Code: Ibu Corina [{AGENT_INFO.salesCode}]
+                  *Pricelist Resmi Terbaru &bull; Bebas Biaya Rumput Selamanya &bull; Agent Code: Ibu Corina [{AGENT_INFO.salesCode}]
                 </p>
               </div>
             </div>
