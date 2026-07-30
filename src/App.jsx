@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustBadges from './components/TrustBadges';
+import AuthorityEmpathyProfile from './components/AuthorityEmpathyProfile';
 import ExecutiveSummary from './components/ExecutiveSummary';
 import PlotCatalog from './components/PlotCatalog';
 import CalculatorModal from './components/CalculatorModal';
@@ -9,6 +10,7 @@ import IslamicSyariah from './components/IslamicSyariah';
 import FacilitiesAndServices from './components/FacilitiesAndServices';
 import RouteGuide from './components/RouteGuide';
 import KnowledgeHub from './components/KnowledgeHub';
+import DeepSocialProof from './components/DeepSocialProof';
 import Testimonials from './components/Testimonials';
 import LeadCaptureForm from './components/LeadCaptureForm';
 import CloudflareDevDrawer from './components/CloudflareDevDrawer';
@@ -46,6 +48,9 @@ export default function App() {
       {/* 2.5 Standalone Trust Badges */}
       <TrustBadges />
 
+      {/* 2.8 Authority & Empathy Profile (Human Touch & Dedication Letter) */}
+      <AuthorityEmpathyProfile onOpenSurvey={handleOpenSurvey} />
+
       {/* 3. Executive Summary & 12 Advantages */}
       <ExecutiveSummary />
 
@@ -66,6 +71,9 @@ export default function App() {
 
       {/* 8. News & Knowledge Hub Articles */}
       <KnowledgeHub />
+
+      {/* 8.5 Deep-Dive Social Proof & Case Studies */}
+      <DeepSocialProof />
 
       {/* 9. Testimonials & Endorsements */}
       <Testimonials />

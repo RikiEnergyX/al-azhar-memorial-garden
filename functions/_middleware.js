@@ -110,14 +110,38 @@ export async function onRequest(context) {
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://www.makamalazhar.web.id/#author-corina",
         "name": "Ibu Corina",
-        "jobTitle": "Senior Memorial Partner",
+        "jobTitle": "Senior Memorial Partner & Konsultan Kedukaan Syariah",
         "identifier": "AZHR-10306",
         "telephone": "+6281310091299",
+        "email": "corina.alazhar@gmail.com",
+        "url": "https://www.makamalazhar.web.id",
+        "knowsAbout": [
+          "Pemakaman Syariah Islam",
+          "Sertifikasi Arah Kiblat Kemenag",
+          "Pre-Need Planning Lahan Makam Muslim",
+          "Relokasi Makam TPU Umum IPTM",
+          "Pengurusan UPJ Kedukaan 24 Jam"
+        ],
         "worksFor": {
           "@type": "Organization",
-          "name": "Al Azhar Memorial Garden Karawang"
-        }
+          "name": "Al Azhar Memorial Garden Karawang",
+          "parentOrganization": {
+            "@type": "Organization",
+            "name": "Yayasan Pesantren Islam (YPI) Al Azhar"
+          }
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Official Authorized Memorial Partner",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "PT Nuansa Usaha Mandiri"
+            }
+          }
+        ]
       },
       {
         "@context": "https://schema.org",
