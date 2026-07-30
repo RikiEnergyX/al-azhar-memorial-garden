@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TrustBadges from './components/TrustBadges';
 import ExecutiveSummary from './components/ExecutiveSummary';
 import PlotCatalog from './components/PlotCatalog';
 import CalculatorModal from './components/CalculatorModal';
@@ -41,6 +42,9 @@ export default function App() {
         onOpenCalculator={() => handleOpenCalculator('single')}
         onOpenSurvey={handleOpenSurvey}
       />
+
+      {/* 2.5 Standalone Trust Badges */}
+      <TrustBadges />
 
       {/* 3. Executive Summary & 12 Advantages */}
       <ExecutiveSummary />

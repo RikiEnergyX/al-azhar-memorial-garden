@@ -111,6 +111,9 @@ export default function Hero({ onOpenCalculator, onOpenSurvey }) {
               <img
                 src="/images/hero.jpg"
                 alt="Al Azhar Memorial Garden Aerial View"
+                fetchPriority="high"
+                decoding="sync"
+                loading="eager"
                 className="w-full h-[400px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0D2A4A]/80 via-transparent to-transparent" />
