@@ -11,7 +11,6 @@ import FacilitiesAndServices from './components/FacilitiesAndServices';
 import RouteGuide from './components/RouteGuide';
 import KnowledgeHub from './components/KnowledgeHub';
 import DeepSocialProof from './components/DeepSocialProof';
-import Testimonials from './components/Testimonials';
 import LeadCaptureForm from './components/LeadCaptureForm';
 import CloudflareDevDrawer from './components/CloudflareDevDrawer';
 import Footer from './components/Footer';
@@ -75,10 +74,7 @@ export default function App() {
       {/* 8.5 Deep-Dive Social Proof & Case Studies */}
       <DeepSocialProof />
 
-      {/* 9. Testimonials & Endorsements */}
-      <Testimonials />
-
-      {/* 10. PwC-Style Lead Capture Form */}
+      {/* 9. PwC-Style Lead Capture Form */}
       <LeadCaptureForm />
 
       {/* Cloudflare Workers Backend Drawer & Setup Spec (Temporarily hidden for clean production view) */}

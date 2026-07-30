@@ -43,35 +43,20 @@ export default function Hero({ onOpenCalculator, onOpenSurvey }) {
               <span className="inline-block px-2 py-0.5 rounded bg-emerald-100 text-[#0F4C3A] font-bold text-xs">ISO 9001</span>.
             </p>
 
-            {/* Trust Badges Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/80 border border-gray-200/80 shadow-xs hover:border-[#0F4C3A]/30 transition-all">
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0F4C3A] flex items-center justify-center shrink-0">
-                  <Shield className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-semibold text-gray-800 leading-tight">100% Khusus Muslim</span>
-              </div>
-
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/80 border border-gray-200/80 shadow-xs hover:border-[#0F4C3A]/30 transition-all">
-                <div className="w-8 h-8 rounded-lg bg-amber-50 text-[#D4AF37] flex items-center justify-center shrink-0">
-                  <Compass className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-semibold text-gray-800 leading-tight">Sertifikat Kiblat Kemenag</span>
-              </div>
-
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/80 border border-gray-200/80 shadow-xs hover:border-[#0F4C3A]/30 transition-all">
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0F4C3A] flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-semibold text-gray-800 leading-tight">Bebas Biaya Rumput</span>
-              </div>
-
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/80 border border-gray-200/80 shadow-xs hover:border-[#0F4C3A]/30 transition-all">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0D2A4A] flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-semibold text-gray-800 leading-tight">UPJ 24 Jam Non-Stop</span>
-              </div>
+            {/* Key Highlights Bar */}
+            <div className="flex flex-wrap gap-2 pt-1 text-xs font-semibold text-gray-700">
+              <span className="px-3 py-1.5 rounded-lg bg-emerald-50 text-[#0F4C3A] border border-emerald-200/80 flex items-center gap-1.5">
+                <Shield className="w-3.5 h-3.5 text-[#0F4C3A]" />
+                100% Khusus Muslim
+              </span>
+              <span className="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/80 flex items-center gap-1.5">
+                <Compass className="w-3.5 h-3.5 text-[#D4AF37]" />
+                Sertifikat Kiblat Kemenag
+              </span>
+              <span className="px-3 py-1.5 rounded-lg bg-blue-50 text-[#0D2A4A] border border-blue-200/80 flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-[#0D2A4A]" />
+                UPJ Kedukaan 24 Jam
+              </span>
             </div>
 
             {/* CTAs */}
